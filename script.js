@@ -1,12 +1,14 @@
 document.addEventListener("DOMContentLoaded", function() {
+
   
-    function main() {
+    async function main() {
       // Application state
-      let todos = [];
+
+      let todos = await loadTasks();
+
       // UI elements
       const addTodoButton = document.querySelector("#addTodo");
-
-	    addTodoButton.addEventListener('click', function() {
+      addTodoButton.addEventListener('click', function() {
         const taskNameInput = document.querySelector("#taskName")
         const taskName = taskNameInput.value;
 
@@ -60,6 +62,12 @@ document.addEventListener("DOMContentLoaded", function() {
             renderTodos(todos);
           }
         });
+
+        const saveButton = document.querySelector("#save-btn");
+          saveButton.addEventListener("click", async function() {
+          await saveTasks(todos);
+        });
+
     }
   }
 
