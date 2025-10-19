@@ -6,6 +6,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
       let todos = await loadTasks();
 
+      renderTodos(todos);
+
       // UI elements
       const addTodoButton = document.querySelector("#addTodo");
       addTodoButton.addEventListener('click', function() {
@@ -70,7 +72,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
     }
   }
-
-  renderTodos(todos);
+  
   
 });
